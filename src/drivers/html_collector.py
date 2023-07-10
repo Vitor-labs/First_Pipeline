@@ -1,4 +1,3 @@
-"""Class to define Extraction methods"""
 from bs4 import BeautifulSoup 
 from typing import List, Dict
 
@@ -6,21 +5,8 @@ from src.drivers.interfaces.html_collector import HtmlCollectorInterface
 
 
 class HtmlCollector(HtmlCollectorInterface):
-    """Class to define Extraction methods
-
-    Args:
-        HtmlCollectorInterface (ABC): Interface that defines the HTML COLLECTOR methods
-    """
     @classmethod
-    def collect_info(cls, html:str) -> List[Dict[str, str]]:
-        """Collects Data from destination
-
-        Args:
-            html (str): url for crawlling
-
-        Returns:
-            List[Dict[str, str]]: _description_
-        """
+    def collect_info(cls, html:str)->List[Dict[str,str]]:
         soup = BeautifulSoup(html, 'html.parser')
         info = []
 

@@ -1,31 +1,16 @@
-"""
-Module Docstring
-"""
 import os
+from pathlib import Path
 import psycopg2
-
 from dotenv import load_dotenv
 
-
+path = Path('First_Pipeline/src/.env')
 load_dotenv()
 
 class DBConnector:
-    """
-    Represents a connector for connecting to a PostgreSQL database.
-    """
     connection = None
 
     @classmethod
     def connect(cls):
-        """
-        Establishes a connection to the PostgreSQL database.
-
-        Returns:
-            None
-
-        Raises:
-            psycopg2.OperationalError: If the connection fails.
-        """
         print("Connecting to DataBase")
         conn = psycopg2.connect(database=os.getenv('DATABASE'),
                                 host=os.getenv('HOST'),
