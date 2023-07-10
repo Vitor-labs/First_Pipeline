@@ -5,7 +5,6 @@ from src.stages.contracts.extract_contract import ExtractContract
 from src.stages.contracts.transform_contract import TransformContract
 
 
-
 class HtmlTransform:
     def transform(self, contract:ExtractContract)->TransformContract:
         print("Running Transform stage")

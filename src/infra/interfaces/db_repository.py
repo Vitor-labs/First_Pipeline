@@ -1,8 +1,11 @@
+"""
+Module Docstring
+"""
 from abc import ABC, abstractmethod
 from typing import Dict
 
 
-class DBRepositoryInterface:
+class DBRepositoryInterface(ABC):
     """
     This class defines the interface for a database repository.
 
@@ -25,4 +28,3 @@ class DBRepositoryInterface:
             NotImplementedError: This method is not implemented in the base class.
         """
         raise NotImplementedError("DBRepository.insert_artist: not implemented")
-

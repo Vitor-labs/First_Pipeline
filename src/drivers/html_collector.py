@@ -1,6 +1,6 @@
 """Class to define Extraction methods"""
-from bs4 import BeautifulSoup 
 from typing import List, Dict
+from bs4 import BeautifulSoup 
 
 from src.drivers.interfaces.html_collector import HtmlCollectorInterface
 

@@ -6,3 +6,9 @@ TransformContract=namedtuple(
         content
     '''
 )
+
+"""
+A named tuple representing the contract for transforming data.
+Args:
+    content: The content to be transformed.
+"""

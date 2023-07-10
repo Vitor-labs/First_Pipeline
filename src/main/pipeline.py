@@ -16,6 +16,6 @@ class Pipeline:
 
     def run(self)->None:
         DBConnector.connect()
-        extract_contract=self.__html_extractor.extract()
-        transform_contract=self.__html_transform.transform(extract_contract)
+        extract_contract = self.__html_extractor.extract()
+        transform_contract = self.__html_transform.transform(extract_contract)
         self.__load_data.load_data(transform_contract)

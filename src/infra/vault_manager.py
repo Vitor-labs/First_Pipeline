@@ -1,5 +1,8 @@
+"""
+Module Docstring
+"""
+from typing import Optional, Dict
 import hvac
-from typing import Optional
 
 
 class HashiCorpVaultConnection:
@@ -43,7 +46,31 @@ class HashiCorpVaultConnection:
         """
         if not self.client:
             raise ValueError("Vault connection has not been established")
+
         response = self.client.secrets.kv.v2.read_secret_version(path=path)
+
         if not response or not response.get("data"):
-            raise ValueError("Failed to read secret from HashiCorp Vault")
+            raise ValueError("Failed to read secret from Vault")
+
         return response["data"]["data"]
+    
+
+    def create_secret(self, path: str, secret: Dict) -> dict:
+        """
+        Read a secret from HashiCorp Vault.
+
+        Args:
+            path (str): The path to the secret in Vault.
+
+        Returns:
+            dict: The secret data.
+        """
+        if not self.client:
+            raise ValueError("Vault connection has not been established")
+
+        response = self.client.secrets.kv.v2.create_or_update_secret(path=path, secret=secret)
+
+        if not response:
+            raise ValueError("Failed to create secret on Vault")
+
+        return response
